@@ -9,7 +9,8 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>junitExample</module>
+    <module>testsExample</module>
+    <module>springExample</module>
   </modules>
 
   <name>common</name>

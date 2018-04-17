@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+    <!-- Universities -->
+    <bean id="bntu" class="by.training.spring.model.University">
+        <property name="name" value="The Belarusian National Technical University"/>
+        <property name="faculties">
+            <list value-type="by.training.spring.model.Faculty">
+                <ref bean="atf"/>
+                <ref bean="mef"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Faculties-->
+    <bean id="atf" class="by.training.spring.model.Faculty">
+        <property name="name" value="Automotive and Tractor Faculty"/>
+        <property name="professors">
+            <list value-type="by.training.spring.model.Professor">
+                <ref bean="pupkin"/>
+                <ref bean="holkin"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="mef" class="by.training.spring.model.Faculty">
+        <property name="name" value="Mechanical Engineering Faculty"/>
+        <property name="professors">
+            <list value-type="by.training.spring.model.Professor">
+                <ref bean="ivanov"/>
+                <ref bean="petrov"/>
+                <ref bean="sidorov"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Professors -->
+    <bean id="pupkin" class="by.training.spring.model.Professor">
+        <property name="firstName" value="Anton"/>
+        <property name="lastName" value="Pupkin"/>
+    </bean>
+
+    <bean id="holkin" class="by.training.spring.model.Professor">
+        <property name="firstName" value="Valentin"/>
+        <property name="lastName" value="Holkin"/>
+    </bean>
+
+    <bean id="ivanov" class="by.training.spring.model.Professor">
+        <property name="firstName" value="Ivan"/>
+        <property name="lastName" value="Ivanov"/>
+    </bean>
+
+    <bean id="petrov" class="by.training.spring.model.Professor">
+        <property name="firstName" value="Petr"/>
+        <property name="lastName" value="Petrov"/>
+    </bean>
+
+    <bean id="sidorov" class="by.training.spring.model.Professor">
+        <property name="firstName" value="Fedor"/>
+        <property name="lastName" value="Sidorov"/>
+    </bean>
+</beans>
