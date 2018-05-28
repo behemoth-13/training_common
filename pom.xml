@@ -11,6 +11,8 @@
   <modules>
     <module>testsExample</module>
     <module>springExample</module>
+    <module>messageQueue</module>
+    <module>threads</module>
   </modules>
 
   <name>common</name>
