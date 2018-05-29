@@ -57,5 +57,21 @@ public class AppTest {
         assertArrayEquals(expectedResult, actualResult);
     }
 
-
+    @Test
+    public void incrementTest() throws InterruptedException {
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 30; i++) {
+                Incrementator.increment();
+            }
+        });
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 30; i++) {
+               Incrementator.increment();
+            }
+        });
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+    }
 }
