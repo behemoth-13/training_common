@@ -1,5 +1,6 @@
 package by.training;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -59,19 +60,27 @@ public class AppTest {
 
     @Test
     public void incrementTest() throws InterruptedException {
-        Thread t1 = new Thread(() -> {
-            for (int i = 0; i < 30; i++) {
-                Incrementator.increment();
-            }
-        });
-        Thread t2 = new Thread(() -> {
-            for (int i = 0; i < 30; i++) {
-               Incrementator.increment();
-            }
-        });
-        t1.start();
-        t2.start();
-        t1.join();
-        t2.join();
+        int threadCount = 1000;
+        int incrementsPerThread = 100;
+        Thread[] threads = new Thread[threadCount];
+        Incrementator incrementator = new Incrementator();
+
+
+        for (int i = 0; i < threadCount; i++) {
+            threads[i] = new Thread(() -> {
+                for (int i2 = 0; i2 < incrementsPerThread; i2++) {
+                    incrementator.increment();
+                }
+            });
+
+        }
+        for (Thread thread : threads) {
+            thread.start();
+        }
+        for (Thread thread : threads) {
+            thread.join();
+        }
+
+        Assert.assertEquals(threadCount * incrementsPerThread, incrementator.getInt());
     }
 }

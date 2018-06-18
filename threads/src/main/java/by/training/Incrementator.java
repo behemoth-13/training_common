@@ -1,12 +1,18 @@
 package by.training;
 
 public class Incrementator {
-    private static Integer number = 0;
+    private static int number = 0;
+    private static final Object lock = new Object();
 
-    public static void increment() {
-        synchronized (number) {
+    public synchronized void increment() {
+        synchronized (lock) {
             number++;
-            System.out.println(number);
+        }
+    }
+
+    public int getInt() {
+        synchronized (lock) {
+            return number;
         }
     }
 }
