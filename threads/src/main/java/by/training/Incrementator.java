@@ -1,8 +1,8 @@
 package by.training;
 
 public class Incrementator {
-    private static int number = 0;
-    private static final Object lock = new Object();
+    private int number = 0;
+    private final Object lock = new Object();
 
     public synchronized void increment() {
         synchronized (lock) {
