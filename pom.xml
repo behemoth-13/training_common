@@ -13,6 +13,7 @@
     <module>springExample</module>
     <module>messageQueue</module>
     <module>threads</module>
+    <module>cassandra</module>
   </modules>
 
   <name>common</name>
